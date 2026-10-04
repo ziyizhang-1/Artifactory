@@ -1,0 +1,94 @@
+# Helix keymap port of the Neovim configuration uploaded in this conversation.
+# Command names/settings checked against Helix 25.07.1 and official docs.
+# No plugins, shell commands, or external keymap dependencies are required.
+# See README.md for intentional differences from Neovim.
+
+theme = "dark_plus"
+
+[editor]
+line-number = "absolute"
+scrolloff = 2
+rulers = [100]
+end-of-line-diagnostics = "hint"
+
+[editor.soft-wrap]
+enable = false
+
+[editor.search]
+smart-case = true
+wrap-around = true
+
+[editor.file-picker]
+hidden = false
+
+[editor.lsp]
+display-inlay-hints = false
+auto-signature-help = true
+display-signature-help-docs = false
+
+[editor.statusline]
+left = ["mode", "read-only-indicator", "file-name", "file-modification-indicator"]
+right = ["position", "position-percentage", "file-encoding", "file-type"]
+
+[editor.whitespace]
+render = "none"
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "¬"
+tab = "^"
+tabpad = " "
+newline = "⏎"
+
+# -----------------------------------------------------------------------------
+# Normal mode
+# -----------------------------------------------------------------------------
+[keys.normal]
+C-h = "signature_help"
+C-a = "goto_first_nonwhitespace"
+C-e = "goto_line_end"
+C-z = "undo"
+C-Z = "redo"
+# Preserve the exact direction of your Neovim buffer mappings.
+tab = "goto_previous_buffer"
+S-tab = "goto_next_buffer"
+
+j = "move_visual_line_down"
+k = "move_visual_line_up"
+
+H = "hover"
+
+n = ["search_next", "align_view_center"]
+N = ["search_prev", "align_view_center"]
+
+# Helix searches the CURRENT SELECTION. Use miw first to select a whole word.
+C-f = ["search_selection_detect_word_boundaries", "search_next", "align_view_center"]
+
+[keys.normal.g]
+# These LSP keys are already Helix defaults; listed explicitly for clarity.
+d = "goto_definition"
+D = "goto_declaration"
+i = "goto_implementation"
+r = "goto_reference"
+
+# -----------------------------------------------------------------------------
+# Select / extend mode: keep Helix's selection-first editing model.
+# -----------------------------------------------------------------------------
+[keys.select]
+C-a = "extend_to_first_nonwhitespace"
+C-e = "extend_to_line_end"
+C-z = "undo"
+C-Z = "redo"
+n = ["extend_search_next", "align_view_center"]
+N = ["extend_search_prev", "align_view_center"]
+C-f = ["search_selection", "search_next", "align_view_center"]
+
+# -----------------------------------------------------------------------------
+# Insert mode. Completion menus and prompts keep their own built-in bindings.
+# -----------------------------------------------------------------------------
+[keys.insert]
+C-a = "goto_first_nonwhitespace"
+C-e = "goto_line_end"
+C-z = "undo"
+C-Z = "redo"
+
