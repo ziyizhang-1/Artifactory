@@ -49,6 +49,9 @@ C-a = "goto_first_nonwhitespace"
 C-e = "goto_line_end"
 C-z = "undo"
 C-Z = "redo"
+C-c = "yank_to_clipboard"
+C-7 = "toggle_comments"
+"C-/" = "toggle_comments"
 # Preserve the exact direction of your Neovim buffer mappings.
 tab = "goto_previous_buffer"
 S-tab = "goto_next_buffer"
@@ -79,9 +82,12 @@ C-a = "extend_to_first_nonwhitespace"
 C-e = "extend_to_line_end"
 C-z = "undo"
 C-Z = "redo"
+C-c = "yank_to_clipboard"
 n = ["extend_search_next", "align_view_center"]
 N = ["extend_search_prev", "align_view_center"]
 C-f = ["search_selection", "search_next", "align_view_center"]
+C-7 = "toggle_comments"
+"C-/" = "toggle_comments"
 
 # -----------------------------------------------------------------------------
 # Insert mode. Completion menus and prompts keep their own built-in bindings.
@@ -91,4 +97,6 @@ C-a = "goto_first_nonwhitespace"
 C-e = "goto_line_end"
 C-z = "undo"
 C-Z = "redo"
-
+C-c = "yank_to_clipboard"
+C-7 = "toggle_comments"
+"C-/" = "toggle_comments"
